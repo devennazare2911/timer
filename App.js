@@ -10,6 +10,17 @@ import {
 import moment from 'moment' //Package Installed 
 
 
+function TitleHeading (){
+  return(
+<View style={styles.timerContainer}>
+<Text style={styles.title}>Stopwatch</Text>
+
+
+</View>
+  )
+  }
+
+
 //Timer Function for adding Text and Calculations
 
 function Timer({ interval, style }) {
@@ -166,6 +177,8 @@ export default class App extends Component {
     const timer = now - start
     return (
       <View style={styles.container}>
+       < TitleHeading/>
+
         <Timer
           interval={laps.reduce((total, curr) => total + curr, 0) + timer}
           style={styles.timer}
@@ -175,7 +188,7 @@ export default class App extends Component {
             <RoundButton
               title='Lap'
               color='#8B8B90'
-              background='#151515'
+              background='#FFFFFF'
               disabled
             />
             <RoundButton
@@ -190,8 +203,8 @@ export default class App extends Component {
           <ButtonsRow>
             <RoundButton
               title='Lap'
-              color='#FFFFFF'
-              background='#3D3D3D'
+              color='#3D3D3D'
+              background='#FFFFFF'
               onPress={this.lap}
             />
             <RoundButton
@@ -234,6 +247,17 @@ const styles = StyleSheet.create({
     paddingTop: 130,
     paddingHorizontal: 20,
   },
+
+  title:{
+      color: '#FFFFFF',
+      fontSize: 30,
+      fontWeight: '200',
+      width: 410,
+      paddingLeft: 140,
+      margin:10,
+  },
+
+  
   timer: {
     color: '#FFFFFF',
     fontSize: 76,
@@ -290,7 +314,10 @@ const styles = StyleSheet.create({
   },
   timerContainer: {
     flexDirection: 'row',
+    paddingLeft: 30 ,
   }
+
+  
 })
 //Style Sheet Ends here 
 
